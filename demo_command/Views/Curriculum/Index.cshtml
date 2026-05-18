@@ -1,0 +1,134 @@
+﻿@{
+    Layout = null; // Remove qualquer interferência do layout padrão do ASP.NET
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carreiras na Apple - Enviar Currículo</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Tenta carregar a fonte original do sistema da Apple */
+        @@font-face {
+            font-family: 'SF Pro Display';
+            font-weight: 400 600;
+            src: local('.SFProDisplay-Regular'), local('.SF Pro Display Regular');
+        }
+        
+        body {
+            /* Pilha de fontes exata usada pela Apple */
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f7; /* O cinza-claro característico do fundo da Apple */
+            color: #1d1d1f; /* O quase-preto usado para textos */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Barra de Navegação Global Translúcida */
+        .globalnav {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+
+        /* Botão Azul Clássico da Apple (Formato Pílula) */
+        .btn-apple {
+            background-color: #0071e3;
+            border-radius: 980px; 
+        }
+        .btn-apple:hover {
+            background-color: #0077ed;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <nav class="globalnav fixed top-0 w-full z-50 h-[44px]">
+        <div class="max-w-[1024px] mx-auto px-4 h-full flex items-center justify-between text-[#f5f5f7] text-[12px] opacity-80">
+            <a href="#" class="hidden md:block hover:opacity-100 transition-opacity">Loja</a>
+            <a href="#" class="hidden md:block hover:opacity-100 transition-opacity">Mac</a>
+            <a href="#" class="hidden md:block hover:opacity-100 transition-opacity">iPad</a>
+            <a href="#" class="hidden md:block hover:opacity-100 transition-opacity">iPhone</a>
+            <a href="#" class="hidden md:block hover:opacity-100 transition-opacity">Watch</a>
+            <a href="#" class="hidden md:block hover:opacity-100 transition-opacity">AirPods</a>
+            <a href="#" class="hidden md:block hover:opacity-100 transition-opacity font-semibold opacity-100 text-white">Carreiras</a>
+            <a href="#" class="hidden md:block hover:opacity-100 transition-opacity">Suporte</a>
+            <a href="#" class="hover:opacity-100 transition-opacity">
+                <svg viewBox="0 0 15 44" width="15" height="44" fill="currentColor">
+                    <path d="M14.298 27.182L10.05 22.934C10.874 21.802 11.336 20.404 11.336 18.91C11.336 15.26 8.366 12.29 4.716 12.29C1.066 12.29 -1.904 15.26 -1.904 18.91C-1.904 22.56 1.066 25.53 4.716 25.53C6.012 25.53 7.214 25.148 8.246 24.484L12.552 28.79C12.79 29.028 13.172 29.028 13.41 28.79L14.298 27.902C14.536 27.664 14.536 27.282 14.298 27.182ZM4.716 24.316C1.734 24.316 -0.69 21.892 -0.69 18.91C-0.69 15.928 1.734 13.504 4.716 13.504C7.698 13.504 10.122 15.928 10.122 18.91C10.122 21.892 7.698 24.316 4.716 24.316Z"/>
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-[120px] pb-[80px] flex flex-col items-center justify-center">
+        
+        <div class="text-center max-w-[800px] px-6">
+            <h1 class="text-[56px] leading-[1.05] font-semibold tracking-tight mb-4 text-[#1d1d1f]">
+                Descubra o seu potencial.
+            </h1>
+            <p class="text-[24px] leading-[1.16] font-normal tracking-tight text-[#86868b] mb-12">
+                Junte-se à nossa equipe. Envie o seu currículo.
+            </p>
+
+            <div class="max-w-[400px] mx-auto bg-white rounded-[18px] shadow-[0_4px_24px_rgba(0,0,0,0.06)] p-8 border border-[#d2d2d7]/50">
+                <form asp-action="Enviar" method="post" enctype="multipart/form-data" class="flex flex-col space-y-6">
+                    
+                    <div class="text-left">
+                        <label class="block text-[14px] font-semibold mb-2 text-[#1d1d1f]">Arquivo do currículo</label>
+                        
+                        <div class="relative w-full h-[52px] bg-[#f5f5f7] rounded-[12px] border border-[#d2d2d7] hover:border-[#86868b] transition-colors flex items-center px-4 overflow-hidden">
+                            <input type="file" name="arquivo" id="arquivo" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" required onchange="document.getElementById('filename').textContent = this.files[0].name" />
+                            
+                            <svg class="w-5 h-5 text-[#86868b] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
+                            </svg>
+                            <span id="filename" class="text-[14px] text-[#86868b] whitespace-nowrap overflow-hidden text-ellipsis">Anexar PDF ou DOCX</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-apple text-white text-[15px] font-normal py-[12px] px-4 w-full focus:outline-none focus:ring-4 focus:ring-[#0071e3]/30 transition-all">
+                        Enviar Candidatura
+                    </button>
+                </form>
+
+                @if (ViewBag.Mensagem != null)
+                {
+                    <script>
+                        // O programador esqueceu-se de remover este console.log de depuração!
+                        console.group("%c[ALERTA DE SEGURANÇA] - Debug do Servidor", "color: red; font-size: 14px; font-weight: bold;");
+                        console.log("%cOs dados abaixo foram retornados diretamente do terminal do servidor:", "color: orange;");
+                        
+                        // O Html.Raw com o Json.Serialize garante que as quebras de linha do terminal não quebrem o JavaScript
+                        var logDoServidor = @Html.Raw(Json.Serialize(ViewBag.DevDebugLog));
+                        console.log(logDoServidor);
+                        
+                        console.groupEnd();
+                    </script>
+                }
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-[#f5f5f7] pt-5 pb-8 px-4 text-[#86868b] text-[12px]">
+        <div class="max-w-[980px] mx-auto border-t border-[#d2d2d7] pt-4 flex flex-col md:flex-row justify-between items-center">
+            <p>Copyright © 2026 Maça Inc. Todos os direitos reservados.</p>
+            <div class="space-x-3 mt-2 md:mt-0 flex items-center">
+                <a href="#" class="hover:text-[#1d1d1f]">Política de Privacidade</a>
+                <span class="border-l border-[#d2d2d7] h-3"></span>
+                <a href="#" class="hover:text-[#1d1d1f]">Termos de Uso</a>
+                <span class="border-l border-[#d2d2d7] h-3"></span>
+                <a href="#" class="hover:text-[#1d1d1f]">Avisos Legais</a>
+            </div>
+        </div>
+    </footer>
+
+    @if (ViewBag.DevDebugLog != null)
+    {
+        }
+
+</body>
+</html>
