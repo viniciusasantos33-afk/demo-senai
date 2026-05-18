@@ -2,8 +2,6 @@
 
 Este projeto é uma aplicação web desenvolvida em ASP.NET Core MVC que simula uma plataforma de envio de currículos inspirada no design minimalista da Apple. O principal objetivo deste repositório é fins **didáticos e acadêmicos**, demonstrando de forma prática e controlada uma vulnerabilidade de **Execução Remota de Código (RCE)** via **Injeção de Comando (Command Injection)**, simulando a mecânica do famoso ataque histórico sofrido pela **Equifax** em 2017 (CVE-2017-5638).
 
----
-
 ## 🛠️ Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
@@ -11,8 +9,6 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 * [.NET SDK 8.0 ou 9.0](https://dotnet.microsoft.com/download)
 * Uma IDE como [Visual Studio](https://visualstudio.microsoft.com/) ou [VS Code](https://code.visualstudio.com/)
 * Uma ferramenta de testes de API como **HTTPie**, **cURL** ou **Postman**
-
----
 
 ## 📦 Como baixar e rodar o projeto
 
@@ -37,8 +33,6 @@ dotnet run
 ```
 
 > 💡 **Nota:** O terminal exibirá as URLs locais (geralmente `http://localhost:5000` ou `https://localhost:5001`). Abra o endereço indicado no seu navegador.
-
----
 
 ## 📁 Como Gerar os Arquivos para o Teste
 
@@ -66,8 +60,6 @@ echo "Payload de teste" > "curriculo & whoami & rem .pdf"
 
 ```
 
----
-
 ## 💻 Como Funciona a Demonstração da Falha
 
 A aplicação possui dois fluxos distintos projetados especificamente para apresentações e defesas de trabalhos:
@@ -92,8 +84,6 @@ curl -i -s -X POST http://localhost:5000/Curriculum/Enviar -F "arquivo=@meu_curr
 
 > 📊 **Resultado do Exploit:** O servidor processará o comando injetado no cabeçalho `X-Exploit-Command` e devolverá a resposta do terminal do Windows/Linux de forma cirúrgica diretamente no cabeçalho de resposta da rede sob a propriedade **`X-Terminal-Output`**, provando a quebra do isolamento do protocolo HTTP.
 
----
-
 ## 🛡️ O que este projeto ensina sobre Defesa?
 
 A existência desta falha no código demonstra a importância de:
@@ -102,14 +92,10 @@ A existência desta falha no código demonstra a importância de:
 2. **Evitar a concatenação de comandos no OS:** Sempre utilizar APIs nativas da linguagem de programação que tratem argumentos como dados literais e não como instruções executáveis.
 3. **Princípio do Menor Privilégio:** O processo que roda o servidor Kestrel/.NET nunca deve rodar como Administrador/Root do sistema.
 
----
-
 ## 🛠️ Tecnologias Utilizadas
 
 * **C# / .NET Core (MVC)**
 * **Razor Engines** (Com condicionais dinâmicos para renderização de estados)
 * **Tailwind CSS** (Para a fidelidade visual da interface)
-
----
 
 Feito com ❤️ para fins de conscientização em Segurança da Informação. 😉
