@@ -14,14 +14,14 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 ### 1. Clonar o repositório
 ```bash
-git clone [https://github.com/seu-usuario/nome-do-seu-repositorio.git](https://github.com/seu-usuario/nome-do-seu-repositorio.git)
+git clone https://github.com/viniciusasantos33-afk/demo-senai.git
 
 ```
 
 ### 2. Entrar no diretório do projeto
 
 ```bash
-cd nome-do-seu-repositorio
+cd demo-senai
 
 ```
 
