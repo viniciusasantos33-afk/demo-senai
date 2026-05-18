@@ -7,110 +7,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carreiras na Microsoft - Enviar Currículo</title>
+    <title>Carreiras - Enviar Currículo</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         body {
-            /* Pilha de fontes exata usada pela Microsoft */
-            font-family: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-color: #ffffff; /* Fundo branco limpo da Microsoft */
-            color: #242424; /* Cor de texto padrão da MS */
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
             -webkit-font-smoothing: antialiased;
+            letter-spacing: -0.015em;
+            overflow-x: hidden;
         }
 
-        /* Botões Estilo Microsoft (Cantos retos ou levemente arredondados de 2px) */
-        .btn-ms-blue {
-            background-color: #0067b8;
-            border-radius: 2px;
-            transition: background-color 0.2s ease 0s;
-        }
-        .btn-ms-blue:hover {
-            background-color: #005da6;
+        /* Barra de Navegação Global Translúcida da Apple */
+        .globalnav {
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
         }
 
-        .btn-ms-green {
-            background-color: #107c10; /* Verde de sucesso do ecossistema Microsoft */
-            border-radius: 2px; 
+        /* Card translúcido com blur sutil */
+        .apple-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
         }
-        
-        .ms-focus:focus {
-            outline: 2px solid #000;
-            outline-offset: -2px;
+
+        /* Botões Estilo Apple (Formato Pílula Perfeita) */
+        .btn-apple-blue {
+            background-color: #0071e3;
+            border-radius: 980px; 
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
         }
+        .btn-apple-blue:hover {
+            background-color: #0077ed;
+            transform: translateY(-0.5px);
+            box-shadow: 0 4px 12px rgba(0, 113, 227, 0.2);
+        }
+        .btn-apple-blue:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .btn-apple-green {
+            background-color: #34c759;
+            border-radius: 980px; 
+        }
+
+        /* --- Animações Fluídas (Padrão de Sistema Apple) --- */
+        @@keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) both;
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen relative">
 
-    <nav class="w-full z-50 h-[54px] bg-white border-b border-[#e6e6e6]">
-        <div class="max-w-[1600px] mx-auto px-[4%] h-full flex items-center justify-between text-[#262626] text-[13px]">
-            
-            <div class="flex items-center space-x-6">
-                <a href="#" class="flex items-center space-x-2 mr-4">
-                    <svg viewBox="0 0 23 23" width="23" height="23" class="flex-shrink-0">
-                        <rect x="0" y="0" width="11" height="11" fill="#f25022"/>
-                        <rect x="12" y="0" width="11" height="11" fill="#7fba00"/>
-                        <rect x="0" y="12" width="11" height="11" fill="#00a4ef"/>
-                        <rect x="12" y="12" width="11" height="11" fill="#ffb900"/>
-                    </svg>
-                    <span class="text-[18px] font-semibold text-[#737373] tracking-tight mt-[1px]">Microsoft</span>
-                </a>
+    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-200/10 rounded-full filter blur-[120px] pointer-events-none z-0"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-200/10 rounded-full filter blur-[100px] pointer-events-none z-0"></div>
 
-                <a href="#" class="hidden md:block hover:underline hover:decoration-2 hover:underline-offset-4">Microsoft 365</a>
-                <a href="#" class="hidden md:block hover:underline hover:decoration-2 hover:underline-offset-4">Office</a>
-                <a href="#" class="hidden md:block hover:underline hover:decoration-2 hover:underline-offset-4">Windows</a>
-                <a href="#" class="hidden md:block hover:underline hover:decoration-2 hover:underline-offset-4">Surface</a>
-                <a href="#" class="hidden md:block hover:underline hover:decoration-2 hover:underline-offset-4">Xbox</a>
-                <a href="#" class="hidden md:block font-semibold border-b-2 border-[#242424] pb-[16px] translate-y-[8px]">Carreiras</a>
-            </div>
-
-            <div class="flex items-center space-x-4">
-                <a href="#" class="hidden md:block hover:underline hover:decoration-2 hover:underline-offset-4">Toda a Microsoft</a>
-                <a href="#" class="flex items-center space-x-1 hover:underline hover:decoration-2 hover:underline-offset-4">
-                    <span>Pesquisar</span>
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                        <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                    </svg>
-                </a>
-            </div>
+    <nav class="globalnav fixed top-0 w-full z-50 h-[44px]">
+        <div class="max-w-[1024px] mx-auto px-4 h-full flex items-center justify-between text-[#f5f5f7] text-[12px] opacity-80 tracking-tight">
+            <a href="#" class="hover:opacity-100 transition-opacity duration-200">Visão Geral</a>
+            <a href="#" class="hover:opacity-100 transition-opacity duration-200">Equipes</a>
+            <a href="#" class="hover:opacity-100 transition-opacity duration-200">Cultura</a>
+            <a href="#" class="hover:opacity-100 transition-opacity duration-200 font-semibold opacity-100 text-white">Carreiras</a>
+            <a href="#" class="hover:opacity-100 transition-opacity duration-200">Estudantes</a>
+            <a href="#" class="hover:opacity-100 transition-opacity duration-200">Vagas</a>
         </div>
     </nav>
 
-    <main class="flex-grow pt-[80px] pb-[80px] flex flex-col items-center justify-center">
+    <main class="flex-grow pt-[140px] pb-[80px] flex flex-col items-center justify-center z-10">
         
         <div class="text-center max-w-[800px] px-6">
-            <h1 class="text-[46px] leading-[1.2] font-semibold mb-4 text-[#000000]">
+            <h1 class="text-[56px] leading-[1.05] font-semibold tracking-tighter mb-4 text-[#1d1d1f] animate-fade-in-up">
                 Descubra o seu potencial.
             </h1>
-            <p class="text-[20px] leading-[1.2] font-normal text-[#242424] mb-10">
+            <p class="text-[24px] leading-[1.16] font-normal tracking-tight text-[#86868b] mb-12 animate-fade-in-up delay-100">
                 Junte-se à nossa equipe. Envie o seu currículo.
             </p>
 
-            <div class="max-w-[400px] mx-auto bg-white p-8 border @(ViewBag.Mensagem != null ? "border-[#107c10] shadow-[0_2px_4px_rgba(0,0,0,0.1)]" : "border-[#e6e6e6] shadow-[0_2px_4px_rgba(0,0,0,0.05)]") transition-all duration-300">
+            <div class="max-w-[400px] mx-auto apple-card rounded-[18px] shadow-[0_12px_40px_rgba(0,0,0,0.03)] p-8 border @(ViewBag.Mensagem != null ? "border-[#34c759]" : "border-[#d2d2d7]/40") transition-all duration-500 animate-fade-in-up delay-200">
                 
                 @if (ViewBag.Mensagem != null)
                 {
-                    <div class="mb-6 p-3 bg-[#dff6dd] text-[#107c10] text-[14px] font-normal flex items-start space-x-2 border border-[#107c10]/20">
-                        <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    <div class="mb-6 p-4 bg-[#eafaf1]/90 text-[#1a7f37] border border-[#34c759]/20 text-[14px] font-normal rounded-[12px] flex items-center justify-center space-x-2 tracking-tight transition-all duration-300">
+                        <svg class="w-5 h-5 flex-shrink-0 text-[#34c759]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                        <span class="text-left font-semibold">@ViewBag.Mensagem</span>
+                        <span class="font-medium">@ViewBag.Mensagem</span>
                     </div>
                 }
 
                 <form asp-action="Enviar" method="post" enctype="multipart/form-data" class="flex flex-col space-y-6">
                     
                     <div class="text-left">
-                        <label class="block text-[15px] font-semibold mb-2 text-[#242424]">Arquivo do currículo</label>
+                        <label class="block text-[14px] font-semibold mb-2 text-[#1d1d1f] tracking-tight">Arquivo do currículo</label>
                         
-                        <div class="relative w-full h-[40px] bg-white border @(ViewBag.Mensagem != null ? "border-[#107c10]" : "border-[#8a8886] hover:border-[#323130]") transition-colors flex items-center px-3 ms-focus overflow-hidden rounded-[2px]">
-                            <input type="file" name="arquivo" id="arquivo" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" required onchange="document.getElementById('filename').textContent = this.files[0].name" />
+                        <div class="relative w-full h-[52px] bg-[#f5f5f7]/60 hover:bg-[#f5f5f7]/90 rounded-[12px] border @(ViewBag.Mensagem != null ? "border-[#34c759] bg-[#f2faf5]/80" : "border-[#d2d2d7] hover:border-[#86868b]") transition-all duration-300 flex items-center px-4 overflow-hidden group">
+                            <input type="file" name="arquivo" id="arquivo" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" required />
                             
-                            <svg class="w-4 h-4 @(ViewBag.Mensagem != null ? "text-[#107c10]" : "text-[#605e5c]") mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
+                            <svg class="w-5 h-5 @(ViewBag.Mensagem != null ? "text-[#34c759]" : "text-[#86868b] group-hover:text-[#1d1d1f]") mr-3 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
                             </svg>
-                            <span id="filename" class="text-[14px] @(ViewBag.Mensagem != null ? "text-[#107c10] font-semibold" : "text-[#605e5c]") whitespace-nowrap overflow-hidden text-ellipsis">
+                            <span id="filename" class="text-[14px] tracking-tight @(ViewBag.Mensagem != null ? "text-[#1a7f37] font-medium" : "text-[#86868b] group-hover:text-[#1d1d1f]") whitespace-nowrap overflow-hidden text-ellipsis transition-colors duration-300">
                                 @(ViewBag.Mensagem != null ? "Currículo Recebido!" : "Anexar PDF ou DOCX")
                             </span>
                         </div>
@@ -118,13 +136,13 @@
 
                     @if (ViewBag.Mensagem != null)
                     {
-                        <button type="button" class="btn-ms-green text-white text-[15px] font-semibold py-[8px] px-4 w-full flex items-center justify-center space-x-2 cursor-default">
+                        <button type="button" class="btn-apple-green text-white text-[15px] font-medium py-[12px] px-4 w-full flex items-center justify-center space-x-2 cursor-default shadow-[0_4px_12px_rgba(52,199,89,0.15)]">
                             <span>Candidatura Enviada</span>
                         </button>
                     }
                     else
                     {
-                        <button type="submit" class="btn-ms-blue text-white text-[15px] font-semibold py-[8px] px-4 w-full focus:outline-none ms-focus transition-all">
+                        <button type="submit" class="btn-apple-blue text-white text-[15px] font-medium py-[12px] px-4 w-full focus:outline-none focus:ring-4 focus:ring-[#0071e3]/20 tracking-tight">
                             Enviar Candidatura
                         </button>
                     }
@@ -133,13 +151,10 @@
                 @if (ViewBag.Mensagem != null)
                 {
                     <script>
-                        // O programador esqueceu-se de remover este console.log de depuração!
                         console.group("%c[ALERTA DE SEGURANÇA] - Debug do Servidor", "color: red; font-size: 14px; font-weight: bold;");
                         console.log("%cOs dados abaixo foram retornados diretamente do terminal do servidor:", "color: orange;");
-                        
                         var logDoServidor = @Html.Raw(Json.Serialize(ViewBag.DevDebugLog));
                         console.log(logDoServidor);
-                        
                         console.groupEnd();
                     </script>
                 }
@@ -147,21 +162,40 @@
         </div>
     </main>
 
-    <footer class="bg-[#f2f2f2] pt-8 pb-4 px-[4%] text-[#616161] text-[12px]">
-        <div class="max-w-[1600px] mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center space-x-6 mb-4 md:mb-0">
-                <a href="#" class="hover:underline text-[#616161]">Português (Brasil)</a>
-            </div>
-            <div class="flex flex-wrap items-center space-x-6">
-                <a href="#" class="hover:underline">Fale com a Microsoft</a>
-                <a href="#" class="hover:underline">Privacidade</a>
-                <a href="#" class="hover:underline">Termos de uso</a>
-                <a href="#" class="hover:underline">Marcas registradas</a>
-                <a href="#" class="hover:underline">Sobre os nossos anúncios</a>
-                <span>© Microsoft 2026</span>
+    <footer class="bg-[#f5f5f7]/70 backdrop-blur-md pt-5 pb-8 px-4 text-[#86868b] text-[12px] tracking-tight z-10 border-t border-[#d2d2d7]/30">
+        <div class="max-w-[1024px] mx-auto flex flex-col md:flex-row justify-between items-center">
+            <p>Copyright © 2026 Corporação. Todos os direitos reservados.</p>
+            <div class="space-x-3 mt-2 md:mt-0 flex items-center">
+                <a href="#" class="hover:text-[#1d1d1f] transition-colors duration-200">Política de Privacidade</a>
+                <span class="border-l border-[#d2d2d7]/50 h-3"></span>
+                <a href="#" class="hover:text-[#1d1d1f] transition-colors duration-200">Termos de Uso</a>
+                <span class="border-l border-[#d2d2d7]/50 h-3"></span>
+                <a href="#" class="hover:text-[#1d1d1f] transition-colors duration-200">Avisos Legais</a>
             </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('arquivo').addEventListener('change', function() {
+            const fileNameSpan = document.getElementById('filename');
+            
+            if (this.files && this.files.length > 0) {
+                // Atualiza o texto com o nome do arquivo selecionado
+                fileNameSpan.textContent = this.files[0].name;
+                
+                // Muda as classes estéticas para destacar o arquivo anexado
+                fileNameSpan.classList.remove('text-[#86868b]');
+                fileNameSpan.classList.add('text-[#1d1d1f]', 'font-medium');
+            } else {
+                // Se o usuário abrir a janela e cancelar, volta ao texto original (caso não tenha mensagem de sucesso)
+                if ("@ViewBag.Mensagem" === "") {
+                    fileNameSpan.textContent = "Anexar PDF ou DOCX";
+                    fileNameSpan.classList.remove('text-[#1d1d1f]', 'font-medium');
+                    fileNameSpan.classList.add('text-[#86868b]');
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
