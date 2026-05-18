@@ -95,3 +95,4 @@ C:\Users\58064856841\RiderProjects\demo_command\demo_command\obj\Debug\net10.0\r
 C:\Users\58064856841\RiderProjects\demo_command\demo_command\obj\Debug\net10.0\demo_command.pdb
 C:\Users\58064856841\RiderProjects\demo_command\demo_command\obj\Debug\net10.0\demo_command.genruntimeconfig.cache
 C:\Users\58064856841\RiderProjects\demo_command\demo_command\obj\Debug\net10.0\ref\demo_command.dll
+C:\Users\58064856841\RiderProjects\demo_command\demo_command\obj\Debug\net10.0\demo_command.sourcelink.json
